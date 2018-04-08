@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>阴阳</title>
+    <style>
+      .yinyang::before{
+        content: "";
+        position: absolute;
+        border: 20px solid red;
+        background: #eee;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: 50%;
+      }
+      .yinyang::after{
+        content: "";
+        position: absolute;
+        border: 20px solid #eee;
+        background: red;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: 50%;
+        right: 0;
+        
+      }
+      .yinyang{
+        position: relative;
+        border-style: solid;
+        border-color: red;
+        background: #eee;
+        width: 100px;
+        height: 50px;
+        border-width: 2px 2px 50px 2px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="yinyang"></div>
+  </body>
+</html>
