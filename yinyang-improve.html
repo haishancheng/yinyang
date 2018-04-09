@@ -1,7 +1,8 @@
+<!-- improve的思路是将两个做内部圆圈的div用before和after来替代 -->
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>阴阳</title>
   <style>
     body {
@@ -11,8 +12,15 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      /* 搜索css linear gradient generator来生成代码 */
+
+      /* 圆形半黑半白方法一:搜索css linear gradient generator来生成代码 */
       background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #000000 50%, #000000 100%);
+      /* 圆形半黑半白方法二:也可以用border来做 */
+      /* box-sizing: border-box;
+      border-style: solid;
+      border-width: 0px 0px 100px 0px;
+      background: white; */
+
       position: relative;
       margin: 100px auto 20px;
       animation-duration: 3s;
@@ -20,7 +28,8 @@
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }
-    .yinyang .yin {
+    .yinyang::before {
+      content: "";
       box-sizing: border-box;
       width: 100px;
       height: 100px;
@@ -28,14 +37,11 @@
       position: absolute;
       top: 50px;
       left: 0;
-      /* 中心圆圈方法一：也是用generator来生成 */
-      /* background: black;
-      background: radial-gradient(ellipse at center, #ffffff 0%,#ffffff 15%,#000000 15%,#ffffff 15%,#ffffff 15%,#000000 15%,#000000 15%,#000000 15%,#000000 100%); */
-      /* 中心圆圈方法二：border来做 */
       background: white;
       border: 40px solid black;
     }
-    .yinyang .yang {
+    .yinyang::after {
+      content: "";
       box-sizing: border-box;
       width: 100px;
       height: 100px;
@@ -50,7 +56,6 @@
       text-align: center;
       color: white;
     }
-
     @keyframes spin {
       from {
         transform: rotate(0deg);
@@ -62,10 +67,7 @@
   </style>
 </head>
 <body>
-  <div class="yinyang">
-    <div class="yin"></div>
-    <div class="yang"></div>
-  </div>
+  <div class="yinyang"></div>
   <p class="text">道生一, 一生二, 二生三, 三生万物</p>
 </body>
 </html>
